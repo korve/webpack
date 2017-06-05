@@ -121,7 +121,8 @@ module.exports = function(yargs, argv, convertOptions) {
 
 	function processConfiguredOptions(options) {
 		if(options === null || typeof options !== "object") {
-			console.error("Config did not export an object or a function returning an object.");
+			console.error("Config did not export an object, an array of objects or a function " +
+				"returning an object or an array of objects.");
 			process.exit(-1); // eslint-disable-line
 		}
 
