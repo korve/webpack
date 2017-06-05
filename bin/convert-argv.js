@@ -125,6 +125,11 @@ module.exports = function(yargs, argv, convertOptions) {
 			process.exit(-1); // eslint-disable-line
 		}
 
+		if(Array.isArray(options) && options.length === 0) {
+			console.error("Config exports an empty array.");
+			process.exit(-1); // eslint-disable-line
+		}
+
 		// process Promise
 		if(typeof options.then === "function") {
 			return options.then(processConfiguredOptions);
